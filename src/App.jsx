@@ -1,8 +1,12 @@
+import "./app.css";
+import "./index.css";
+import CourseList from "./components/CourseList";
+
 function App() {
   return (
     <div>
-      <h2>dss</h2>
-      <h1>helloo</h1>
+      <h1>My courses (3)</h1>
+      <CourseList />
     </div>
   );
 }
