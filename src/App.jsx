@@ -2,6 +2,8 @@ import "./app.css";
 import "./index.css";
 import CourseList from "./components/CourseList";
 
+
+
 function App() {
   return (
     <div>
