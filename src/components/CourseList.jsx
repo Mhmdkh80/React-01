@@ -7,7 +7,7 @@ const courses = [
     description: "language lessons with the most popular teachers",
     imageUrl: "/images/img1.jpg",
     rate: "4.5",
-    tags: ["langauges"],
+    tags: ["languages"],
     start: "2021-08-01T20:46:30.615Z",
     status: "Completed",
   },
@@ -39,12 +39,10 @@ function CourseList() {
   return (
     <div className="course-list">
       {courses.map((course) => {
-        return <CourseCard key={course.id} />;
+        return <CourseCard key={course.id} course={course} />;
       })}
     </div>
   );
 }
 
 export default CourseList;
-
-

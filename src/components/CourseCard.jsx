@@ -1,4 +1,4 @@
-function CourseCard() {
+function CourseCard(props) {
   return (
     <div className="course-item">
       <div className="course-item__img">
@@ -7,25 +7,28 @@ function CourseCard() {
       <div className="course-item__detail">
         <div className="course-item__body">
           <div>
-            <p className="title">React course</p>
-            <p className="desc">The Ultimate React and Redux</p>
+            <p className="title ">{props.course.title}</p>
+            <p className="desc">{props.course.description}</p>
           </div>
-          <span className="rate">4</span>
+          <span className="rate">{props.course.rate}</span>
         </div>
         <div className="course-item__footer">
           <div className="tags">
-            <span className="badge badge--secondary">languages</span>
-            <span className="badge badge--secondary">languages</span>
+            {props.course.tags.map((t) => (
+              <span key={t} className="badge badge--secondary">
+                {props.course.tags}
+              </span>
+            ))}
           </div>
           <div className="caption">
             <div className="date">
-              {new Date().toLocaleDateString("en-US", {
+              {new Date(props.course.start).toLocaleDateString("en-US", {
                 month: "short",
                 year: "numeric",
                 day: "numeric",
               })}
             </div>
-            <span className="badge badge--primary">completed</span>
+            <span className="badge badge--primary">{props.course.status}</span>
           </div>
         </div>
       </div>
