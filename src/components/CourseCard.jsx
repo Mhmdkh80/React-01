@@ -6,7 +6,7 @@ function CourseCard({ course }) {
       </div>
       <div className="course-item__detail">
         <CourseCardBody course={course} />
-        <CourseCardFooter course={course}/>
+        <CourseCardFooter course={course} />
       </div>
     </div>
   );
@@ -14,19 +14,24 @@ function CourseCard({ course }) {
 
 export default CourseCard;
 
-function CourseCardBody({course}) {
+function CourseCardBody({ course }) {
   return (
     <div className="course-item__body">
       <div>
         <p className="title ">{course.title}</p>
         <p className="desc">{course.description}</p>
       </div>
-      <span className="rate">{course.rate}</span>
+      <span className="rate">⭐{course.rate}</span>
     </div>
   );
 }
 
-function CourseCardFooter({course}) {
+function CourseCardFooter({ course }) {
+  const startedAt = new Date(course.start).toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+    day: "numeric",
+  });
   return (
     <div className="course-item__footer">
       <div className="tags">
@@ -37,14 +42,18 @@ function CourseCardFooter({course}) {
         ))}
       </div>
       <div className="caption">
-        <div className="date">
-          {new Date(course.start).toLocaleDateString("en-US", {
-            month: "short",
-            year: "numeric",
-            day: "numeric",
-          })}
-        </div>
-        <span className="badge badge--primary">{course.status}</span>
+        <div className="date">{startedAt}</div>
+        <span
+          className={`badge ${
+            course.status === "Active"
+              ? "badge--primary"
+              : course.status === "Upcoming"
+              ? "badge--danger"
+              : "badge--secondary"
+          }`}
+        >
+          {course.status}
+        </span>
       </div>
     </div>
   );

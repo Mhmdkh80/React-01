@@ -96,3 +96,13 @@ h1 {
 .course-item__footer .caption .badge {
   font-weight: bold;
 }
+
+.active{
+  padding: 1rem;
+}
+
+.active:hover{
+  color: rgb(245, 218, 64);
+  cursor: pointer;
+  font-weight: 700;
+}
